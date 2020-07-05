@@ -9,3 +9,26 @@ Os logs iriam ficar no MongoDB por não ter tanta necessidade de relacionamento 
 A autenticação do cadastro com JWT e iria criar uma tabela de categorias para fazer o relacionamento com produtos.
 
 O que eu fiz até o momento está no GitLab, mas ainda não criei o endpoint no Heroku.
+
+
+
+Opa, Arthur, tudo bem?
+
+então, antes de mais nada, muito obrigado pela oportunidade.
+lamento muito que essa situação tenha acontecido e tenha alterado os seus planos, inclusive aproveitei para solicitar uns dias no-tech na emprea para descansar a cabeça desses dias tumultuados, portanto, fui ver seu e-mail mesmo na noite de sexta...rs
+
+mas, enfim, está lá...
+
+tive que fazer algumas adaptações do que já havia comentado:
+- mudei a base de dados de mysql para postgres porque lembrei que o Heroku tem essa exigência;
+- mudei de gitlab para github para ficar mais fácil vocês acessarem por não haver a necessidade de um repositório privado;
+- deixei um readme explicativo caso queira fazer um teste local ou dar uma olhada mais fácil no código;
+- também deixei o endpoint no Heroku que não requer nenhuma instalação, portanto mais fácil de testar a execução, mas não tem o código;
+- usei o eslint e o prettier para manter uma padroização do código;
+- usei o sequelize para persistência de dados no postgres;
+- usei o mongoose para persistência de dados no mongodb;
+- usei o nodemon só como dev-dependency;
+- fiz um frontend bem tosco só para ficar mais fácil de testar as APIs, por favor não mostre para os frontends e a galera de UI/UX sob pena de eu ser imediatamente condenado à fogueira eterna...rs;
+- o restante é o que já havia comentado no e-mail anterior, não deu pra dar aquela caprichada no código como eu gostaria, mas, espero que atenda...
+
+
