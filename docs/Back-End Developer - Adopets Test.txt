@@ -1,0 +1,11 @@
+Já fiz testes muito semelhantes usando Node com Express e Jest para o TDD, Lúmen (versão reduzida do framework PHP Laravel voltado para APIs) e PHP Unit e Python com Flask.
+
+Então, aproveitei um modelo que já possuía e atualizei as entidades e, consequentemente, as mensagens do teste de cobertura, assim como alguns asserts. Costumo simular um mockup com a biblioteca fake e o SQLite somente em memória, sem escrita em disco. Não pretendia fazer um CI/CD, não sei se essa era proposta também.
+
+Estava fazendo tudo com imagens Docker que já havia construído antes com o básico para cada ambiente.
+
+Os logs iriam ficar no MongoDB por não ter tanta necessidade de relacionamento e ser uma base com grande possibilidade de crescimento. As demais informações ficariam em uma base SQL devido o forte relacionamento e a facilidade na construção do CRUD, além  das consultas por filtro, ordenação e paginação.
+
+A autenticação do cadastro com JWT e iria criar uma tabela de categorias para fazer o relacionamento com produtos.
+
+O que eu fiz até o momento está no GitLab, mas ainda não criei o endpoint no Heroku.
