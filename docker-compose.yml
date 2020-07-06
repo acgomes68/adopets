@@ -4,6 +4,7 @@ services:
 
   postgres:
     image: postgres:11-alpine
+    restart: always
     container_name: postgres-${POSTGRES_DATABASE}
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWD}
@@ -16,6 +17,7 @@ services:
     depends_on:
       - postgres
     image: mvertes/alpine-mongo:latest
+    restart: always
     container_name: mongo-${MONGO_DATABASE}
     volumes:
       - ./data/mongo:/data/db
@@ -25,14 +27,16 @@ services:
   adopets:
     build:
         context: .
-        target: prd
+        target: dev
     depends_on:
       - postgres
       - mongo
     image: acgomes68/alpine-node:latest
+    restart: always
     container_name: api-${APP_NAME}
     command: npm start
     ports:
+    - 5000:5000
     - ${APP_PORT}:3000
     volumes:
     - .:/usr/app
