@@ -1,6 +1,10 @@
-import * as Yup from 'yup';
-import Product from '../models/Product';
-import Category from '../models/Category';
+// import * as Yup from 'yup';
+// import Product from '../models/Product';
+// import Category from '../models/Category';
+
+const Yup = require('yup');
+const Product = require('../models/Product');
+const Category = require('../models/Category');
 
 class ProductController {
     async index(req, res) {
@@ -129,4 +133,6 @@ class ProductController {
     }
 }
 
-export default new ProductController();
+// export default new ProductController();
+
+module.exports = new ProductController();

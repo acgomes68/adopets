@@ -1,6 +1,8 @@
-import 'dotenv/config';
+const app = require('./app');
 
-import app from './app';
+require('dotenv').config({
+    path: process.env.NODE_ENV === 'testing' ? '.env.testing' : '.env',
+});
 
 const { APP_HOST, APP_PORT } = process.env;
 

@@ -1,4 +1,7 @@
-import Sequelize, { Model } from 'sequelize';
+// import Sequelize, { Model } from 'sequelize';
+
+const Sequelize = require('sequelize');
+const { Model } = require('sequelize');
 
 class Product extends Model {
     static init(sequelize) {
@@ -25,4 +28,5 @@ class Product extends Model {
     }
 }
 
-export default Product;
+// export default Product;
+module.exports = Product;

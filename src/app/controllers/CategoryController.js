@@ -1,5 +1,8 @@
-import * as Yup from 'yup';
-import Category from '../models/Category';
+// import * as Yup from 'yup';
+// import Category from '../models/Category';
+
+const Yup = require('yup');
+const Category = require('../models/Category');
 
 class CategoryController {
     async index(req, res) {
@@ -112,4 +115,6 @@ class CategoryController {
     }
 }
 
-export default new CategoryController();
+// export default new CategoryController();
+
+module.exports = new CategoryController();

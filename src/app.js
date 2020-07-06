@@ -1,12 +1,21 @@
-import 'dotenv/config';
+// import express from 'express';
+// import Youch from 'youch';
+// import 'express-async-errors';
 
-import express from 'express';
-import Youch from 'youch';
-import 'express-async-errors';
+// import routes from './routes';
 
-import routes from './routes';
+// import './database';
 
-import './database';
+const express = require('express');
+const Youch = require('youch');
+const routes = require('./routes');
+
+require('express-async-errors');
+require('./database');
+
+require('dotenv').config({
+    path: process.env.NODE_ENV === 'testing' ? '.env.testing' : '.env',
+});
 
 class App {
     constructor() {
@@ -37,4 +46,5 @@ class App {
     }
 }
 
-export default new App().server;
+// export default new App().server;
+module.exports = new App().server;

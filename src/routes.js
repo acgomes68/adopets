@@ -1,11 +1,18 @@
-import { Router } from 'express';
+// import { Router } from 'express';
 
-import SessionController from './app/controllers/SessionController';
-import UserController from './app/controllers/UserController';
-import ProductController from './app/controllers/ProductController';
-import CategoryController from './app/controllers/CategoryController';
+// import SessionController from './app/controllers/SessionController';
+// import UserController from './app/controllers/UserController';
+// import ProductController from './app/controllers/ProductController';
+// import CategoryController from './app/controllers/CategoryController';
 
-import authMiddlewware from './app/middlewares/auth';
+// import authMiddlewware from './app/middlewares/auth';
+
+const Router = require('express');
+const SessionController = require('./app/controllers/SessionController');
+const UserController = require('./app/controllers/UserController');
+const ProductController = require('./app/controllers/ProductController');
+const CategoryController = require('./app/controllers/CategoryController');
+const authMiddlewware = require('./app/middlewares/auth');
 
 const routes = new Router();
 
@@ -44,4 +51,6 @@ routes.delete('/products/:id', ProductController.delete);
 
 /*------------------------------------------------------------------*/
 
-export default routes;
+// export default routes;
+
+module.exports = routes;

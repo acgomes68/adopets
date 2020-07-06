@@ -34,3 +34,16 @@ ENV NODE_ENV=production
 
 # Run npm start command (scripts>start in package.json)
 CMD ["npm", "start"]
+
+# DEV CONFIG
+FROM prd as dev
+
+EXPOSE 5000 3000
+
+ENV NODE_ENV=development
+
+# RUN npm install -g nodemon
+
+# RUN npm install --only=dev
+
+CMD [ "npm", "dev" ]
