@@ -2,8 +2,7 @@
   "name": "adopets",
   "version": "1.0.0",
   "description": "Adopets test application",
-  "author":
-  {
+  "author": {
     "name": "Antonio Carlos Gomes",
     "email": "acgomes68@gmail.com"
   },
