@@ -40,5 +40,11 @@ independente do desfecho, MUITO OBRIGADO!
 
 
 https://github.com/acgomes68/adopets
+
 docker-compose up -d
 docker-compose down -v --remove-orphans
+
+# criar base de dados adopets
+
+yarn sequelize db:seed:all
+yarn sequelize db:migrate
