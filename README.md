@@ -15,7 +15,7 @@ docker-compose down -v --remove-orphans
 ### Criar base de dados adopets no MongoDB e Postgres
 
 
-### Parar o Postgress, executar as migrations e seeders
+### Especificamente para o Postgres, executar as migrations e seeders
 
 yarn sequelize db:seed:all
 
