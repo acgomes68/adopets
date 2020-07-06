@@ -2,7 +2,9 @@ version: "3"
 
 services:
   adopets:
-    build: .
+    build:
+        context: .
+        target: prd
     depends_on:
       - postgres
       - mongo

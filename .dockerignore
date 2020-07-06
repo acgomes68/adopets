@@ -1,2 +1,5 @@
-docs
-node_modules
+docs/
+node_modules/
+.git/
+npm-debug
+docker-compose*.yml

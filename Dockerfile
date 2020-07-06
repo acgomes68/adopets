@@ -1,5 +1,8 @@
+#Dockerfile
+# PRD CONFIG
+
 # Define source image
-FROM node:alpine
+FROM node:alpine AS prd
 
 # Information about building
 LABEL maintainer = "Antonio Carlos Gomes <acgomes68@gmail.com>"
@@ -26,6 +29,8 @@ COPY . .
 
 # Expose container port 3000
 EXPOSE 3000
+
+ENV NODE_ENV=production
 
 # Run npm start command (scripts>start in package.json)
 CMD ["npm", "start"]
