@@ -17,6 +17,10 @@ docker-compose down -v --remove-orphans
 
 ### Especificamente para o Postgres, executar as migrations e seeders
 
+#### Criar tabelas de usuários, produtos e categorias
+yarn sequelize db:migrate
+
+#### Alimentar as tabelas de usuários, produtos e categorias com dados iniciais
 yarn sequelize db:seed:all
 
-yarn sequelize db:migrate
+
