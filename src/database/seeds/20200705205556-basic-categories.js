@@ -4,7 +4,7 @@ module.exports = {
             'categories',
             [
                 {
-                    name: 'Peripherics',
+                    name: 'Peripherals',
                     created_at: new Date(),
                 },
                 {
