@@ -1,6 +1,12 @@
 {
   "name": "adopets",
   "version": "1.0.0",
+  "description": "Adopets test application",
+  "author":
+  {
+    "name": "Antonio Carlos Gomes",
+    "email": "acgomes68@gmail.com"
+  },
   "main": "index.js",
   "license": "MIT",
   "scripts": {

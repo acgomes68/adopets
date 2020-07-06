@@ -119,6 +119,11 @@ class UserController {
             if (!user) {
                 return res.status(400).json({ error: 'User not found' });
             }
+            if (user.id === 1) {
+                return res
+                    .status(401)
+                    .json({ error: 'Admin user cannot be deleted' });
+            }
             await user.destroy();
             return res.json(user);
         } catch (error) {

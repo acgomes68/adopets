@@ -4,8 +4,8 @@ import Category from '../models/Category';
 class CategoryController {
     async index(req, res) {
         try {
-            const students = await Category.findAll();
-            return res.json(students);
+            const categories = await Category.findAll();
+            return res.json(categories);
         } catch (error) {
             return res.status(502).json({ error });
         }
@@ -14,11 +14,11 @@ class CategoryController {
     async show(req, res) {
         const { id } = req.params;
         try {
-            const student = await Category.findByPk(id);
-            if (!student) {
+            const category = await Category.findByPk(id);
+            if (!category) {
                 return res.status(400).json({ error: 'Category not found' });
             }
-            return res.json(student);
+            return res.json(category);
         } catch (error) {
             return res.status(502).json({ error });
         }
@@ -27,12 +27,6 @@ class CategoryController {
     async store(req, res) {
         const schema = Yup.object().shape({
             name: Yup.string().required(),
-            email: Yup.string()
-                .email()
-                .required(),
-            age: Yup.number().required(),
-            weight: Yup.number().required(),
-            height: Yup.number().required(),
         });
 
         if (!(await schema.isValid(req.body))) {
@@ -40,32 +34,21 @@ class CategoryController {
         }
 
         try {
-            const studentExists = await Category.findOne({
-                where: { email: req.body.email },
+            const hasItem = await Category.findOne({
+                where: { name: req.body.name },
             });
 
-            if (studentExists) {
+            if (hasItem) {
                 return res
                     .status(400)
                     .json({ error: 'Category already exists' });
             }
 
-            const {
-                id,
-                name,
-                email,
-                age,
-                weight,
-                height,
-            } = await Category.create(req.body);
+            const { id, name } = await Category.create(req.body);
 
             return res.json({
                 id,
                 name,
-                email,
-                age,
-                weight,
-                height,
             });
         } catch (error) {
             return res.status(502).json({ error });
@@ -75,49 +58,39 @@ class CategoryController {
     async update(req, res) {
         const { id } = req.params;
         const schema = Yup.object().shape({
-            name: Yup.string(),
-            email: Yup.string().email(),
-            age: Yup.number(),
-            weight: Yup.number(),
-            height: Yup.number(),
+            name: Yup.string().required(),
         });
 
         if (!(await schema.isValid(req.body))) {
             return res.status(400).json({ error: 'Validation fails' });
         }
 
-        const { email } = req.body;
+        const strName = req.body.name;
 
         try {
-            const student = await Category.findByPk(id);
+            const category = await Category.findByPk(id);
 
-            if (!student) {
+            if (!category) {
                 return res.status(400).json({ error: 'Category not found' });
             }
 
-            if (email !== student.email) {
-                const studentExists = await Category.findOne({
-                    where: { email },
+            if (strName !== category.name) {
+                const hasItem = await Category.findOne({
+                    where: { strName },
                 });
 
-                if (studentExists) {
+                if (hasItem) {
                     return res
                         .status(400)
                         .json({ error: 'Category already exists' });
                 }
             }
 
-            const { name, age, weight, height } = await student.update(
-                req.body
-            );
+            const { name } = await category.update(req.body);
 
             return res.json({
                 id,
                 name,
-                email,
-                age,
-                weight,
-                height,
             });
         } catch (error) {
             return res.status(502).json({ error });
@@ -127,12 +100,12 @@ class CategoryController {
     async delete(req, res) {
         const { id } = req.params;
         try {
-            const student = await Category.findByPk(id);
-            if (!student) {
+            const category = await Category.findByPk(id);
+            if (!category) {
                 return res.status(400).json({ error: 'Category not found' });
             }
-            await student.destroy();
-            return res.json(student);
+            await category.destroy();
+            return res.json(category);
         } catch (error) {
             return res.status(502).json({ error });
         }
