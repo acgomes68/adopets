@@ -2,20 +2,20 @@
 Repositório criado para avaliação de projeto teste para Adopets
 
 
-## Iniciar os containers do projeto
+### Iniciar os containers do projeto
 
 docker-compose up -d
 
 
-## Parar e excluir os containers do projeto
+### Parar e excluir os containers do projeto
 
 docker-compose down -v --remove-orphans
 
 
-# Criar base de dados adopets no MongoDB e Postgres
+### Criar base de dados adopets no MongoDB e Postgres
 
 
-# Parar o Postgress, executar as migrations e seeders
+### Parar o Postgress, executar as migrations e seeders
 
 yarn sequelize db:seed:all
 
