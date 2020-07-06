@@ -20,16 +20,17 @@ lamento muito que essa situação tenha acontecido e tenha alterado os seus plan
 mas, enfim, está lá...
 
 tive que fazer algumas adaptações do que já havia comentado:
-- mudei a base de dados de MySql para Postgres porque lembrei que o Heroku tem essa exigência;
+- mudei a base de dados de MySQL para Postgres porque lembrei que o Heroku tem essa exigência;
 - mudei de Gitlab para Github para ficar mais fácil vocês acessarem por não haver a necessidade de um repositório privado;
-- deixei um README explicativo caso queira fazer um teste local ou dar uma olhada mais fácil no código;
+- deixei um README explicativo, mas está em pt-br, caso queira fazer um teste local ou dar uma olhada mais fácil no código;
 - também deixei o endpoint no Heroku que não requer nenhuma instalação, portanto mais fácil de testar a execução, mas não tem o código;
 - usei o eslint, prettier e a extensão EditorConfig do VSCode para estilização e formatação do código;
-- usei o sequelize para persistência de dados no postgres;
-- usei o mongoose para persistência de dados no mongodb;
+- usei o sequelize para persistência de dados SQL no Postgres;
+- usei o mongoose para persistência de dados no MongoDB;
 - usei o yup para consistência das informações postadas; 
 - usei o youch para o tratamento de exceções; 
 - usei o nodemon só como dev-dependency;
+- procurei deixar as mensagens e comentários com o meu "sofrível" inglês como solicitado;
 - fiz um frontend bem tosco só para ficar mais fácil de testar as APIs, por favor não mostre para os frontends e a galera de UI/UX sob pena de eu ser imediatamente condenado à fogueira eterna...rs;
 - até pensei em substituir o MongoDB pelo Redis para registro dos logs através de uma fila, mas não daria tempo;
 - o restante é o que já havia comentado no e-mail anterior, não deu pra dar aquela caprichada no código como eu gostaria, mas, espero que atenda...
@@ -37,3 +38,7 @@ tive que fazer algumas adaptações do que já havia comentado:
 independente do desfecho, MUITO OBRIGADO!
 
 
+
+https://github.com/acgomes68/adopets
+docker-compose up -d
+docker-compose down -v --remove-orphans
