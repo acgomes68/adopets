@@ -1,6 +1,31 @@
-version: "3"
+version: "3.7"
 
 services:
+
+  postgres:
+    image: postgres:11-alpine
+    container_name: postgres-${POSTGRES_DATABASE}
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWD}
+    ports:
+    - ${POSTGRES_PORT}:5432
+    volumes:
+    - ./data/postgres:/var/lib/postgresql/data
+    networks:
+    - node-network
+
+  mongo:
+    depends_on:
+      - postgres
+    image: mvertes/alpine-mongo:latest
+    container_name: mongo-${MONGO_DATABASE}
+    volumes:
+      - ./data/mongo:/data/db
+    ports:
+    - ${MONGO_PORT}:27017
+    networks:
+    - node-network
+
   adopets:
     build:
         context: .
@@ -15,21 +40,15 @@ services:
     - ${APP_PORT}:3000
     volumes:
     - .:/usr/app
+    networks:
+    - node-network
 
+volumes:
   postgres:
-    image: postgres:11-alpine
-    container_name: postgres-${POSTGRES_DATABASE}
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWD}
-    ports:
-    - ${POSTGRES_PORT}:5432
-    volumes:
-    - ./data:/var/lib/postgresql/data
-
+    name: postgres
   mongo:
-    depends_on:
-      - postgres
-    image: mvertes/alpine-mongo:latest
-    container_name: mongo-${MONGO_DATABASE}
-    ports:
-    - ${MONGO_PORT}:27017
+    name: mongo
+
+networks:
+  node-network:
+    name: node-network
